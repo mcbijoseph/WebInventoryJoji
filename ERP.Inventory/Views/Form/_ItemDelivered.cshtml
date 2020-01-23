@@ -5,6 +5,7 @@
                 <input type="hidden" name="DraftID" value="" />
                 <input type="hidden" name="ItemTypeID" value="" />
                 <input type="hidden" name="ID" value="@ViewBag.ID" />
+
                 <table class="custom-table custom-table-fixed table-responsive" id="table-@ViewBag.ItemType">
                     <colgroup>
                         <col width="90" />
@@ -55,9 +56,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Supplier Name: </td>
+                        <td>Suppliers Name: </td>
                         <td colspan="5">
-                            <input type="hidden" name="RegionID" value="" class="" />
+                            <input type="hidden" name="RegionID" value="" class="regionID" />
                             <input type="text" name="RegionName" value="" class="regionName" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap"/>
                         </td>
                         <td colspan="3"></td>
