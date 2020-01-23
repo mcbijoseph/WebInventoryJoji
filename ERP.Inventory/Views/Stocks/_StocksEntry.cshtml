@@ -78,7 +78,42 @@
             });
 
 
+            //FOR Region
+            var Regions = [];
 
+            var RegionURL = 'https://raw.githubusercontent.com/clavearnel/philippines-region-province-citymun-brgy/master/json/refregion.json';
+
+            $.getJSON(RegionURL, function (data) {
+
+                var dat = data.Data;
+
+                for (var i = 0; i < dat.length; i++) {
+                    //console.log(dat[i]);
+
+                    var newObj = {};
+
+                    newObj.id = dat[i].ID;
+                    newObj.value = dat[i].RegionName;
+                    //newObj.label = dat[i].ProjectNumber + ' - ' + dat[i].ProjectName;
+                    //newObj.projectNo = dat[i].RegionNumber;
+
+                    Regions.push(newObj);
+
+                }
+
+            });
+
+            $(".regionName").autocomplete({
+                source: Regions,
+                select: function (event, ui) {
+
+                    var $this = $(this);
+
+                    //console.log(ui.item.id);
+                    $this.parents('td').find('input.regionID').val(ui.item.id);
+                    $this.parents('table').find('input.regionName').val(ui.item.regDesc);
+                }
+            });
 
 
 
